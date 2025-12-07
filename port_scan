@@ -1,0 +1,19 @@
+#!/bin/bash
+
+echo -n "Enter target IP: "
+read ip
+
+echo -n "Enter starting port: "
+read start
+
+echo -n "Enter ending port: "
+read end
+
+echo "Scanning ports on $ip ..."
+
+for port in $(seq $start $end); do
+  timeout 1 bash -c "echo > /dev/tcp/$ip/$port" 2>/dev/null &&
+  echo "Port $port is OPEN"
+done
+
+echo "Scan complete."
