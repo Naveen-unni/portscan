@@ -7,7 +7,7 @@ read start
 echo -n "Enter ending port: "
 read end
 
-echo "Scanning ports on $ip ..."
+
 
 
 for port in $(seq $start $end); do
